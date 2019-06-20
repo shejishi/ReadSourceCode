@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
+    android:paddingBottom="10dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/rounded_item_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_circle_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius_top_left="10dp"
+        app:riv_corner_radius_top_right="10dp"
+        app:riv_oval="false" />
+
+    <TextView
+        android:id="@+id/rounded_item_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#0a1b26"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/rounded_item_pic"
+        app:layout_constraintTop_toBottomOf="@id/rounded_item_pic"
+        tools:text="源码解读系列" />
+
+    <TextView
+        android:id="@+id/rounded_item_tv_tag_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/shap_source_read_status_ing"
+        android:paddingStart="5dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/source_read_status_ing_color"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/rounded_item_pic"
+        app:layout_constraintTop_toBottomOf="@id/rounded_item_tv_title"
+        tools:text="进行中" />
+
+    <TextView
+        android:id="@+id/rounded_item_tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/rounded_item_tv_tag_status"
+        app:layout_constraintTop_toBottomOf="@id/rounded_item_tv_title"
+        tools:text="源码解读系列" />
+
+</android.support.constraint.ConstraintLayout>
