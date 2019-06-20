@@ -3,6 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="source_code_main_back_color">#eeeeee</color>
+    <color name="white">#FFFFFF</color>
+
     <color name="source_read_status_ing_color">#03A9F4</color>
     <color name="source_read_status_finish_color">#E91E63</color>
 </resources>

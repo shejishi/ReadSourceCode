@@ -7,6 +7,7 @@
     android:layout_marginStart="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="5dp"
+    android:background="@drawable/shap_source_main_item_bg"
     android:paddingBottom="10dp">
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -18,8 +19,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius_top_left="10dp"
-        app:riv_corner_radius_top_right="10dp"
+        app:riv_corner_radius_top_left="@dimen/main_radius_size"
+        app:riv_corner_radius_top_right="@dimen/main_radius_size"
         app:riv_oval="false" />
 
     <TextView
@@ -53,13 +54,16 @@
 
     <TextView
         android:id="@+id/rounded_item_tv_info"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="#999999"
         android:textSize="14sp"
         app:layout_constraintLeft_toRightOf="@id/rounded_item_tv_tag_status"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rounded_item_tv_title"
         tools:text="源码解读系列" />
 

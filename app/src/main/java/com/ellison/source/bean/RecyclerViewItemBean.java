@@ -37,11 +37,14 @@ public class RecyclerViewItemBean {
     private @SourceStatus
     int status;
 
-    public RecyclerViewItemBean(@DrawableRes int coverImg, String title, String detail, @SourceStatus int status) {
+    private int coverImgHeight;
+
+    public RecyclerViewItemBean(@DrawableRes int coverImg, String title, String detail, @SourceStatus int status, int coverImgHeight) {
         this.coverImg = coverImg;
         this.title = title;
         this.detail = detail;
         this.status = status;
+        this.coverImgHeight = coverImgHeight;
     }
 
     public @DrawableRes
@@ -78,6 +81,15 @@ public class RecyclerViewItemBean {
 
     public RecyclerViewItemBean setStatus(int status) {
         this.status = status;
+        return this;
+    }
+
+    public int getCoverImgHeight() {
+        return coverImgHeight;
+    }
+
+    public RecyclerViewItemBean setCoverImgHeight(int coverImgHeight) {
+        this.coverImgHeight = coverImgHeight;
         return this;
     }
 }

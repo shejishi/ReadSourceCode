@@ -48,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) recyclerViewHolder.mItemCover.getLayoutParams();
-        layoutParams.height = DensityUtils.dip2px(100.0f + new Random().nextInt(20));
+        layoutParams.height = mBeanList.get(i).getCoverImgHeight();
 
         recyclerViewHolder.mItemCover.setImageDrawable(ContextCompat.getDrawable(recyclerViewHolder.mItemCover.getContext(), mBeanList.get(i).getCoverImg()));
         recyclerViewHolder.mTvTitle.setText(mBeanList.get(i).getTitle());
