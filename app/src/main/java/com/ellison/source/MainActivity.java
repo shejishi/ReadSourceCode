@@ -28,23 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
         List<RecyclerViewItemBean> list = new ArrayList<>();
         RecyclerViewItemBean roundedItemBean = new RecyclerViewItemBean(R.drawable.icon_circle_image,
-                "源码解读系列 —— CircleImageView",
-                "阅读的源码都是Github上star数量比较多的项目，其中有一位优秀得开发者整合了star比较多的框架：https://github.com/SenhLinsh/Android-Hot-Libraries",
+                getString(R.string.source_code_rounded_image_view),
+                getString(R.string.source_code_rounded_image_view_detail),
                 RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
 
         RecyclerViewItemBean more1 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_blue_place_img,
-                "待续 —— ",
-                "后面再分析",
+                getString(R.string.source_code_more),
+                getString(R.string.source_code_more_detail),
                 RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
 
         RecyclerViewItemBean more2 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_yellow_place_img,
-                "待续 —— ",
-                "后面再分析",
+                getString(R.string.source_code_more),
+                getString(R.string.source_code_more_detail),
                 RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
 
         RecyclerViewItemBean more3 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_red_place_img,
-                "待续 —— ",
-                "后面再分析",
+                getString(R.string.source_code_more),
+                getString(R.string.source_code_more_detail),
                 RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
 
         list.add(roundedItemBean);

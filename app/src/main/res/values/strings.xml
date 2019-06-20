@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ReadSourceCode</string>
+    <string name="source_code_rounded_image_view">源码解读系列 —— RoundedImageView</string>
+    <string name="source_code_rounded_image_view_detail">阅读的源码都是Github上star数量比较多的项目，其中有一位优秀得开发者整合了star比较多的框架：https://github.com/SenhLinsh/Android-Hot-Libraries</string>
+    <string name="source_code_more">待续 ——</string>
+    <string name="source_code_more_detail">后面再分析</string>
 </resources>

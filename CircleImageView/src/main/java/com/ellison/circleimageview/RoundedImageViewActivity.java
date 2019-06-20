@@ -12,12 +12,12 @@ import android.support.v7.app.AppCompatActivity;
  * 邮箱： Ellison.Sun0808@outlook.com
  * 博客： <a href="https://www.jianshu.com/u/b1c92a64018a">简书博客</a>
  */
-public class CircleImageViewActivity extends AppCompatActivity {
+public class RoundedImageViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        setContentView(R.layout.activity_rounded_image_view);
     }
 }

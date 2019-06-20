@@ -2,7 +2,7 @@
     package="com.ellison.circleimageview">
 
     <application>
-        <activity android:name=".CircleImageViewActivity" />
+        <activity android:name=".RoundedImageViewActivity" />
     </application>
 
 </manifest>
