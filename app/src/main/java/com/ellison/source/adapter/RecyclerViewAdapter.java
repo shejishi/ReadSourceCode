@@ -1,5 +1,6 @@
 package com.ellison.source.adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ellison.circleimageview.RoundedImageViewActivity;
 import com.ellison.source.R;
 import com.ellison.source.bean.RecyclerViewItemBean;
 import com.ellison.source.utils.DensityUtils;
@@ -28,9 +30,11 @@ import java.util.Random;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
 
+    private Activity mActivity;
     private List<RecyclerViewItemBean> mBeanList;
 
-    public RecyclerViewAdapter(List<RecyclerViewItemBean> list) {
+    public RecyclerViewAdapter(Activity activity, List<RecyclerViewItemBean> list) {
+        this.mActivity = activity;
         mBeanList = list == null ? new ArrayList<RecyclerViewItemBean>() : list;
     }
 
@@ -67,6 +71,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             default:
                 break;
         }
+
+        recyclerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RoundedImageViewActivity.enterRoundedImage(mActivity);
+            }
+        });
     }
 
     @Override

@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(more3);
         list.add(more2);
 
-        RecyclerViewAdapter viewAdapter = new RecyclerViewAdapter(list);
+        RecyclerViewAdapter viewAdapter = new RecyclerViewAdapter(this, list);
         mRecyclerView.setAdapter(viewAdapter);
 
     }

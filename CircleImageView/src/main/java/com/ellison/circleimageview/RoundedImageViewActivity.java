@@ -1,5 +1,7 @@
 package com.ellison.circleimageview;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,17 @@ import android.support.v7.app.AppCompatActivity;
  * 博客： <a href="https://www.jianshu.com/u/b1c92a64018a">简书博客</a>
  */
 public class RoundedImageViewActivity extends AppCompatActivity {
+
+    /**
+     * 进入到当前界面
+     *
+     * @param activity
+     */
+    public static void enterRoundedImage(Activity activity) {
+        Intent i = new Intent(activity, RoundedImageViewActivity.class);
+
+        activity.startActivity(i);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
