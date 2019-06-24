@@ -1,8 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ellison.circleimageview">
-
-    <application>
-        <activity android:name=".RoundedImageViewActivity" />
-    </application>
-
-</manifest>
