@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.makeramen.roundedimageview">
+
+    <application>
+        <activity android:name=".demo.RoundedImageViewActivity" />
+    </application>
+</manifest>

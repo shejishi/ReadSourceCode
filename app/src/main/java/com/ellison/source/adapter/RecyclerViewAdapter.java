@@ -11,14 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ellison.circleimageview.RoundedImageViewActivity;
 import com.ellison.source.R;
 import com.ellison.source.bean.RecyclerViewItemBean;
-import com.ellison.source.utils.DensityUtils;
+import com.makeramen.roundedimageview.demo.RoundedImageViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author ellison
