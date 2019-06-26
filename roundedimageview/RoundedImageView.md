@@ -12,6 +12,7 @@
 [https://blog.csdn.net/monkey646812329/article/details/52947966](https://blog.csdn.net/monkey646812329/article/details/52947966)
 
 查看`Drawable`源码， 发现它是一个抽象类，其中还包含一个抽象内部类，所有实现`Drawable`类并且具有不同状态的子类，都需要实现其内部子类`ConstantState`：
+
 ![drawable_method_innerclass.png](https://upload-images.jianshu.io/upload_images/2158207-bf909d753e769b9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240/h/540)
 
 > 源码中对此内部类的注释为：   使用该抽象类来保存共享的常量状态和数据，在同一资源创建的`（BitmapDrawable）`唯一位图保存在其中。
@@ -222,6 +223,7 @@ private void updateAttrs(Drawable drawable, ScaleType scaleType) {
 ```
 
 如果在分析源码之前，不知道源码的运行过程，可以先使用`log`来打印每个方法的日志，然后根据日志来分析每个方法，当然这不是很好的方法，但是目前也没有精力去写一个`aop`的切面来打印日志；后面要是写了再补充吧！下面看下这个库的日志打印情况：
+
 ![方法运行.png](https://upload-images.jianshu.io/upload_images/2158207-ef13cf03ed3ef85f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/h/520)
 
 自定义`view`的流程就再描述了，我们先看到`RoundedImageView#drawableStateChanged()`方法，该方法中调用了`invalidate()`方法，这个方法是`view`中的方法，追溯到源码中，最终会调用`RoundedImageView`中的`onDraw()`方法，因为它继承自`ImageView`，所以直接看到`ImageView#onDraw()`方法：
@@ -309,6 +311,7 @@ public void draw(@NonNull Canvas canvas) {
 }
 ```
 在`draw()`方法中，先绘制`shader`，然后判断是否当前图片是否是圆形，如果是圆形则绘制内容和边框（如果边框宽度大于0），不是圆形则依次判断每个圆角是否有大小，有则绘制圆角内容和边框内容，但是我们看到在绘制的时候，不断的调用了`isStateful()`、`drawableStateChanged()`方法，这是因为在绘制边框和圆角的时候，因为改变了内容和边框的颜色值，所以才会回调到`isStateful()`方法：
+
 ![RoundedDrawable#draw().png](https://upload-images.jianshu.io/upload_images/2158207-8364b1342fdd197c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/540)
 
 这里看到当调用到`redrawBitmapForSquareCorners(Canvas canvas)`方法：
@@ -346,6 +349,7 @@ private void redrawBitmapForSquareCorners(Canvas canvas) {
 }
 ```
 绘制完`Drawable`之后，接着就调用了`RoundedImageView # setImageDrawable(Drawable drawable)`，这是因为`ImageView # setImageDrawable()`方法回调到子类的方法中，接着就是拿到图片资源，重复上面的流程调用，绘制内容和边框：
+
 ![image.png](https://upload-images.jianshu.io/upload_images/2158207-6b5e8d438579e0b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/540/h/720)
 
 到此，`RoundedImageView` 就绘制到面板上了~
