@@ -9,7 +9,3 @@ read the third source code to imporve!
 )，上面的将会存放所有分析源码的文章和使用这些开源框架的 demo~
 
 
-![主页](https://upload-images.jianshu.io/upload_images/2158207-46ca4b83a7cbada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/360/h/750)|![RoundedImageView使用](https://upload-images.jianshu.io/upload_images/2158207-e9b23174a9c6f4a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/360/h/720)|
-
-
-

@@ -104,6 +104,7 @@ public class RoundedImageView extends ImageView {
 
     public RoundedImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        Log.d(TAG, "RoundedImageView(Context context, AttributeSet attrs, int defStyle)");
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RoundedImageView, defStyle, 0);
 
@@ -199,6 +200,7 @@ public class RoundedImageView extends ImageView {
     }
 
     private static Shader.TileMode parseTileMode(int tileMode) {
+        Log.d(TAG, "parseTileMode(int tileMode)");
         switch (tileMode) {
             case TILE_MODE_CLAMP:
                 return Shader.TileMode.CLAMP;
@@ -214,16 +216,19 @@ public class RoundedImageView extends ImageView {
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
+        Log.d(TAG, "drawableStateChanged()");
         invalidate();
     }
 
     @Override
     public ScaleType getScaleType() {
+        Log.d(TAG, "getScaleType()");
         return mScaleType;
     }
 
     @Override
     public void setScaleType(ScaleType scaleType) {
+        Log.d(TAG, "setScaleType(ScaleType scaleType)");
         assert scaleType != null;
 
         if (mScaleType != scaleType) {
@@ -252,6 +257,7 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setImageDrawable(Drawable drawable) {
+        Log.d(TAG, "setImageDrawable(Drawable drawable)");
         mResource = 0;
         mDrawable = RoundedDrawable.fromDrawable(drawable);
         updateDrawableAttrs();
@@ -260,6 +266,7 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setImageBitmap(Bitmap bm) {
+        Log.d(TAG, "setImageBitmap(Bitmap bm)");
         mResource = 0;
         mDrawable = RoundedDrawable.fromBitmap(bm);
         updateDrawableAttrs();
@@ -268,6 +275,7 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setImageResource(@DrawableRes int resId) {
+        Log.d(TAG, "setImageResource(@DrawableRes int resId)");
         if (mResource != resId) {
             mResource = resId;
             mDrawable = resolveResource();
@@ -278,11 +286,13 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setImageURI(Uri uri) {
+        Log.d(TAG, "setImageURI(Uri uri)");
         super.setImageURI(uri);
         setImageDrawable(getDrawable());
     }
 
     private Drawable resolveResource() {
+        Log.d(TAG, "resolveResource()");
         Resources rsrc = getResources();
         if (rsrc == null) {
             return null;
@@ -304,11 +314,13 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setBackground(Drawable background) {
+        Log.d(TAG, "setBackground(Drawable background)");
         setBackgroundDrawable(background);
     }
 
     @Override
     public void setBackgroundResource(@DrawableRes int resId) {
+        Log.d(TAG, "setBackgroundResource(@DrawableRes int resId)");
         if (mBackgroundResource != resId) {
             mBackgroundResource = resId;
             mBackgroundDrawable = resolveBackgroundResource();
@@ -318,11 +330,13 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setBackgroundColor(int color) {
+        Log.d(TAG, "setBackgroundColor(int color)");
         mBackgroundDrawable = new ColorDrawable(color);
         setBackgroundDrawable(mBackgroundDrawable);
     }
 
     private Drawable resolveBackgroundResource() {
+        Log.d(TAG, "Drawable resolveBackgroundResource()");
         Resources rsrc = getResources();
         if (rsrc == null) {
             return null;
@@ -343,10 +357,12 @@ public class RoundedImageView extends ImageView {
     }
 
     private void updateDrawableAttrs() {
+        Log.d(TAG, "updateDrawableAttrs()");
         updateAttrs(mDrawable, mScaleType);
     }
 
     private void updateBackgroundDrawableAttrs(boolean convert) {
+        Log.d(TAG, "updateBackgroundDrawableAttrs(boolean convert)");
         if (mMutateBackground) {
             if (convert) {
                 mBackgroundDrawable = RoundedDrawable.fromDrawable(mBackgroundDrawable);
@@ -357,6 +373,7 @@ public class RoundedImageView extends ImageView {
 
     @Override
     public void setColorFilter(ColorFilter cf) {
+        Log.d(TAG, "setColorFilter(ColorFilter cf)");
         if (mColorFilter != cf) {
             mColorFilter = cf;
             mHasColorFilter = true;
@@ -367,6 +384,7 @@ public class RoundedImageView extends ImageView {
     }
 
     private void applyColorMod() {
+        Log.d(TAG, "applyColorMod()");
         // Only mutate and apply when modifications have occurred. This should
         // not reset the mColorMod flag, since these filters need to be
         // re-applied if the Drawable is changed.
@@ -382,6 +400,7 @@ public class RoundedImageView extends ImageView {
     }
 
     private void updateAttrs(Drawable drawable, ScaleType scaleType) {
+        Log.d(TAG, "updateAttrs(Drawable drawable, ScaleType scaleType)");
         if (drawable == null) {
             return;
         }
@@ -416,6 +435,7 @@ public class RoundedImageView extends ImageView {
     @Override
     @Deprecated
     public void setBackgroundDrawable(Drawable background) {
+        Log.d(TAG, "setBackgroundDrawable(Drawable background)");
         mBackgroundDrawable = background;
         updateBackgroundDrawableAttrs(true);
         //noinspection deprecation
@@ -426,6 +446,7 @@ public class RoundedImageView extends ImageView {
      * @return the largest corner radius.
      */
     public float getCornerRadius() {
+        Log.d(TAG, "getCornerRadius()");
         return getMaxCornerRadius();
     }
 
@@ -433,6 +454,7 @@ public class RoundedImageView extends ImageView {
      * @return the largest corner radius.
      */
     public float getMaxCornerRadius() {
+        Log.d(TAG, "getMaxCornerRadius()");
         float maxRadius = 0;
         for (float r : mCornerRadii) {
             maxRadius = Math.max(r, maxRadius);
@@ -447,6 +469,7 @@ public class RoundedImageView extends ImageView {
      * @return the radius.
      */
     public float getCornerRadius(@Corner int corner) {
+        Log.d(TAG, "getCornerRadius(@Corner int corner)");
         return mCornerRadii[corner];
     }
 
@@ -456,6 +479,7 @@ public class RoundedImageView extends ImageView {
      * @param resId dimension resource id of radii.
      */
     public void setCornerRadiusDimen(@DimenRes int resId) {
+        Log.d(TAG, "setCornerRadiusDimen(@DimenRes int resId)");
         float radius = getResources().getDimension(resId);
         setCornerRadius(radius, radius, radius, radius);
     }
@@ -467,6 +491,7 @@ public class RoundedImageView extends ImageView {
      * @param resId  the dimension resource id of the corner radius.
      */
     public void setCornerRadiusDimen(@Corner int corner, @DimenRes int resId) {
+        Log.d(TAG, "setCornerRadiusDimen(@Corner int corner, @DimenRes int resId)");
         setCornerRadius(corner, getResources().getDimensionPixelSize(resId));
     }
 
@@ -476,6 +501,7 @@ public class RoundedImageView extends ImageView {
      * @param radius the radius to set.
      */
     public void setCornerRadius(float radius) {
+        Log.d(TAG, "setCornerRadius(float radius)");
         setCornerRadius(radius, radius, radius, radius);
     }
 
@@ -486,6 +512,7 @@ public class RoundedImageView extends ImageView {
      * @param radius the corner radius to set in px.
      */
     public void setCornerRadius(@Corner int corner, float radius) {
+        Log.d(TAG, "setCornerRadius(@Corner int corner, float radius)");
         if (mCornerRadii[corner] == radius) {
             return;
         }
@@ -506,6 +533,7 @@ public class RoundedImageView extends ImageView {
      * @param bottomLeft  radius of the bottom left corner in px.
      */
     public void setCornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight) {
+        Log.d(TAG, "(float topLeft, float topRight, float bottomLeft, float bottomRight)");
         if (mCornerRadii[Corner.TOP_LEFT] == topLeft
                 && mCornerRadii[Corner.TOP_RIGHT] == topRight
                 && mCornerRadii[Corner.BOTTOM_RIGHT] == bottomRight
@@ -524,14 +552,17 @@ public class RoundedImageView extends ImageView {
     }
 
     public float getBorderWidth() {
+        Log.d(TAG, "getBorderWidth()");
         return mBorderWidth;
     }
 
     public void setBorderWidth(@DimenRes int resId) {
+        Log.d(TAG, "setBorderWidth(@DimenRes int resId)");
         setBorderWidth(getResources().getDimension(resId));
     }
 
     public void setBorderWidth(float width) {
+        Log.d(TAG, "setBorderWidth(float width)");
         if (mBorderWidth == width) {
             return;
         }
@@ -544,18 +575,22 @@ public class RoundedImageView extends ImageView {
 
     @ColorInt
     public int getBorderColor() {
+        Log.d(TAG, "getBorderColor()");
         return mBorderColor.getDefaultColor();
     }
 
     public void setBorderColor(@ColorInt int color) {
+        Log.d(TAG, "setBorderColor(@ColorInt int color)");
         setBorderColor(ColorStateList.valueOf(color));
     }
 
     public ColorStateList getBorderColors() {
+        Log.d(TAG, "ColorStateList getBorderColors()");
         return mBorderColor;
     }
 
     public void setBorderColor(ColorStateList colors) {
+        Log.d(TAG, " setBorderColor(ColorStateList colors)");
         if (mBorderColor.equals(colors)) {
             return;
         }
@@ -576,6 +611,7 @@ public class RoundedImageView extends ImageView {
      * @return if this {@link RoundedImageView} is set to oval.
      */
     public boolean isOval() {
+        Log.d(TAG, "isOval()");
         return mIsOval;
     }
 
@@ -586,6 +622,7 @@ public class RoundedImageView extends ImageView {
      * @param oval if this {@link RoundedImageView} should be oval.
      */
     public void setOval(boolean oval) {
+        Log.d(TAG, "setOval(boolean oval)");
         mIsOval = oval;
         updateDrawableAttrs();
         updateBackgroundDrawableAttrs(false);
@@ -593,10 +630,12 @@ public class RoundedImageView extends ImageView {
     }
 
     public Shader.TileMode getTileModeX() {
+        Log.d(TAG, "Shader.TileMode getTileModeX()");
         return mTileModeX;
     }
 
     public void setTileModeX(Shader.TileMode tileModeX) {
+        Log.d(TAG, "setTileModeX(Shader.TileMode tileModeX)");
         if (this.mTileModeX == tileModeX) {
             return;
         }
@@ -608,10 +647,12 @@ public class RoundedImageView extends ImageView {
     }
 
     public Shader.TileMode getTileModeY() {
+        Log.d(TAG, "Shader.TileMode getTileModeY()");
         return mTileModeY;
     }
 
     public void setTileModeY(Shader.TileMode tileModeY) {
+        Log.d(TAG, "setTileModeY(Shader.TileMode tileModeY)");
         if (this.mTileModeY == tileModeY) {
             return;
         }
@@ -629,6 +670,7 @@ public class RoundedImageView extends ImageView {
      * @return whether the background is mutated.
      */
     public boolean mutatesBackground() {
+        Log.d(TAG, "mutatesBackground()");
         return mMutateBackground;
     }
 
@@ -639,6 +681,7 @@ public class RoundedImageView extends ImageView {
      * @param mutate true if this view should mutate the background drawable.
      */
     public void mutateBackground(boolean mutate) {
+        Log.d(TAG, "mutateBackground(boolean mutate)");
         if (mMutateBackground == mutate) {
             return;
         }

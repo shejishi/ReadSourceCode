@@ -19,7 +19,7 @@
             android:src="@drawable/icon_circle_image"
             app:riv_oval="true" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
+       <!-- <com.makeramen.roundedimageview.RoundedImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
@@ -67,7 +67,7 @@
             android:scaleType="fitCenter"
             android:src="@drawable/icon_circle_image"
             app:riv_border_color="#FF000000"
-            app:riv_tile_mode_x="repeat" />
+            app:riv_tile_mode_x="repeat" />-->
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
