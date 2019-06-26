@@ -8,4 +8,4 @@ read the third source code to imporve!
 下面看看今天第一个分析的源码—— `RoundedImageView`， 该源码是一个自定义view，源码只有三四个类文件，一开始我也不准备读多么复杂的源码，从简单的开始； 我再`Github`托管了一个新的[项目]([https://github.com/shejishi/ReadSourceCode](https://github.com/shejishi/ReadSourceCode)
 )，上面的将会存放所有分析源码的文章和使用这些开源框架的 demo~
 
-一、 [RoundedImageView 源码分析]（https://github.com/shejishi/ReadSourceCode/blob/master/roundedimageview/RoundedImageView.md）
+一、 [RoundedImageView 源码分析](https://github.com/shejishi/ReadSourceCode/blob/master/roundedimageview/RoundedImageView.md)
