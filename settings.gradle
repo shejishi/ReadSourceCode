@@ -1,1 +1,1 @@
-include ':app', ':roundedimageview'
+include ':app', ':roundedimageview', ':log_annotation'

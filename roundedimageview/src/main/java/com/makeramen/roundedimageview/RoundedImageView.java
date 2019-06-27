@@ -34,7 +34,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.ellison.log.annotation.LoggerClass;
+
 @SuppressWarnings("UnusedDeclaration")
+@LoggerClass
 public class RoundedImageView extends ImageView {
 
     public static final String TAG = "RoundedImageView";
@@ -226,6 +229,7 @@ public class RoundedImageView extends ImageView {
         return mScaleType;
     }
 
+    @LoggerClass
     @Override
     public void setScaleType(ScaleType scaleType) {
         Log.d(TAG, "setScaleType(ScaleType scaleType)");
