@@ -73,7 +73,7 @@ public class RoundedDrawable extends Drawable {
     private ScaleType mScaleType = ScaleType.FIT_CENTER;
 
     public RoundedDrawable(Bitmap bitmap) {
-        Log.d(TAG, "public RoundedDrawable(Bitmap bitmap)");
+//        Log.d(TAG, "public RoundedDrawable(Bitmap bitmap)");
         mBitmap = bitmap;
 
         mBitmapWidth = bitmap.getWidth();
@@ -92,7 +92,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     public static RoundedDrawable fromBitmap(Bitmap bitmap) {
-        Log.d(TAG, "RoundedDrawable fromBitmap(Bitmap bitmap)");
+//        Log.d(TAG, "RoundedDrawable fromBitmap(Bitmap bitmap)");
         if (bitmap != null) {
             return new RoundedDrawable(bitmap);
         } else {
@@ -107,7 +107,7 @@ public class RoundedDrawable extends Drawable {
      * @return
      */
     public static Drawable fromDrawable(Drawable drawable) {
-        Log.d(TAG, "Drawable fromDrawable(Drawable drawable)");
+//        Log.d(TAG, "Drawable fromDrawable(Drawable drawable)");
         if (drawable != null) {
             if (drawable instanceof RoundedDrawable) {
                 // just return if it's already a RoundedDrawable
@@ -134,7 +134,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
-        Log.d(TAG, " Bitmap drawableToBitmap(Drawable drawable) ");
+//        Log.d(TAG, " Bitmap drawableToBitmap(Drawable drawable) ");
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();
         }
@@ -157,19 +157,19 @@ public class RoundedDrawable extends Drawable {
     }
 
     public Bitmap getSourceBitmap() {
-        Log.d(TAG, "Bitmap getSourceBitmap()");
+//        Log.d(TAG, "Bitmap getSourceBitmap()");
         return mBitmap;
     }
 
     @Override
     public boolean isStateful() {
-        Log.d(TAG, "isStateful()");
+//        Log.d(TAG, "isStateful()");
         return mBorderColor.isStateful();
     }
 
     @Override
     protected boolean onStateChange(int[] state) {
-        Log.d(TAG, "onStateChange(int[] state)");
+//        Log.d(TAG, "onStateChange(int[] state)");
         int newColor = mBorderColor.getColorForState(state, 0);
         if (mBorderPaint.getColor() != newColor) {
             mBorderPaint.setColor(newColor);
@@ -180,7 +180,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private void updateShaderMatrix() {
-        Log.d(TAG, "updateShaderMatrix()");
+//        Log.d(TAG, "updateShaderMatrix()");
         float scale;
         float dx;
         float dy;
@@ -278,7 +278,7 @@ public class RoundedDrawable extends Drawable {
 
     @Override
     protected void onBoundsChange(@NonNull Rect bounds) {
-        Log.d(TAG, "onBoundsChange(@NonNull Rect bounds)");
+//        Log.d(TAG, "onBoundsChange(@NonNull Rect bounds)");
         super.onBoundsChange(bounds);
 
         mBounds.set(bounds);
@@ -288,7 +288,7 @@ public class RoundedDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        Log.d(TAG, "draw(@NonNull Canvas canvas)");
+//        Log.d(TAG, "draw(@NonNull Canvas canvas)");
         if (mRebuildShader) {
             // 是否需要重新绘制阴影
             BitmapShader bitmapShader = new BitmapShader(mBitmap, mTileModeX, mTileModeY);
@@ -334,7 +334,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private void redrawBitmapForSquareCorners(Canvas canvas) {
-        Log.d(TAG, "redrawBitmapForSquareCorners(Canvas canvas)");
+//        Log.d(TAG, "redrawBitmapForSquareCorners(Canvas canvas)");
         if (all(mCornersRounded)) {
             // no square corners
             return;
@@ -372,7 +372,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private void redrawBorderForSquareCorners(Canvas canvas) {
-        Log.d(TAG, "redrawBorderForSquareCorners(Canvas canvas)");
+//        Log.d(TAG, "redrawBorderForSquareCorners(Canvas canvas)");
         if (all(mCornersRounded)) {
             // no square corners
             return;
@@ -412,59 +412,59 @@ public class RoundedDrawable extends Drawable {
 
     @Override
     public int getOpacity() {
-        Log.d(TAG, "getOpacity()");
+//        Log.d(TAG, "getOpacity()");
         return PixelFormat.TRANSLUCENT;
     }
 
     @Override
     public int getAlpha() {
-        Log.d(TAG, "getAlpha()");
+//        Log.d(TAG, "getAlpha()");
         return mBitmapPaint.getAlpha();
     }
 
     @Override
     public void setAlpha(int alpha) {
-        Log.d(TAG, "setAlpha(int alpha)");
+//        Log.d(TAG, "setAlpha(int alpha)");
         mBitmapPaint.setAlpha(alpha);
         invalidateSelf();
     }
 
     @Override
     public ColorFilter getColorFilter() {
-        Log.d(TAG, "ColorFilter getColorFilter()");
+//        Log.d(TAG, "ColorFilter getColorFilter()");
         return mBitmapPaint.getColorFilter();
     }
 
     @Override
     public void setColorFilter(ColorFilter cf) {
-        Log.d(TAG, "setColorFilter(ColorFilter cf)");
+//        Log.d(TAG, "setColorFilter(ColorFilter cf)");
         mBitmapPaint.setColorFilter(cf);
         invalidateSelf();
     }
 
     @Override
     public void setDither(boolean dither) {
-        Log.d(TAG, "setDither(boolean dither)");
+//        Log.d(TAG, "setDither(boolean dither)");
         mBitmapPaint.setDither(dither);
         invalidateSelf();
     }
 
     @Override
     public void setFilterBitmap(boolean filter) {
-        Log.d(TAG, "setFilterBitmap(boolean filter)");
+//        Log.d(TAG, "setFilterBitmap(boolean filter)");
         mBitmapPaint.setFilterBitmap(filter);
         invalidateSelf();
     }
 
     @Override
     public int getIntrinsicWidth() {
-        Log.d(TAG, "getIntrinsicWidth()");
+//        Log.d(TAG, "getIntrinsicWidth()");
         return mBitmapWidth;
     }
 
     @Override
     public int getIntrinsicHeight() {
-        Log.d(TAG, "getIntrinsicHeight()");
+//        Log.d(TAG, "getIntrinsicHeight()");
         return mBitmapHeight;
     }
 
@@ -472,7 +472,7 @@ public class RoundedDrawable extends Drawable {
      * @return the corner radius.
      */
     public float getCornerRadius() {
-        Log.d(TAG, "getCornerRadius()");
+//        Log.d(TAG, "getCornerRadius()");
         return mCornerRadius;
     }
 
@@ -481,7 +481,7 @@ public class RoundedDrawable extends Drawable {
      * @return the corner radius of the specified corner.
      */
     public float getCornerRadius(@Corner int corner) {
-        Log.d(TAG, "getCornerRadius(@Corner int corner)");
+//        Log.d(TAG, "getCornerRadius(@Corner int corner)");
         return mCornersRounded[corner] ? mCornerRadius : 0f;
     }
 
@@ -492,7 +492,7 @@ public class RoundedDrawable extends Drawable {
      * @return the {@link RoundedDrawable} for chaining.
      */
     public RoundedDrawable setCornerRadius(float radius) {
-        Log.d(TAG, "RoundedDrawable setCornerRadius(float radius)");
+//        Log.d(TAG, "RoundedDrawable setCornerRadius(float radius)");
         setCornerRadius(radius, radius, radius, radius);
         return this;
     }
@@ -505,7 +505,7 @@ public class RoundedDrawable extends Drawable {
      * @return the {@link RoundedDrawable} for chaining.
      */
     public RoundedDrawable setCornerRadius(@Corner int corner, float radius) {
-        Log.d(TAG, "RoundedDrawable setCornerRadius(@Corner int corner, float radius)");
+//        Log.d(TAG, "RoundedDrawable setCornerRadius(@Corner int corner, float radius)");
         if (radius != 0 && mCornerRadius != 0 && mCornerRadius != radius) {
             throw new IllegalArgumentException("Multiple nonzero corner radii not yet supported.");
         }
@@ -536,7 +536,7 @@ public class RoundedDrawable extends Drawable {
      */
     public RoundedDrawable setCornerRadius(float topLeft, float topRight, float bottomRight,
                                            float bottomLeft) {
-        Log.d(TAG, "RoundedDrawable setCornerRadius(float topLeft, float topRight, float bottomRight, float bottomLeft)");
+//        Log.d(TAG, "RoundedDrawable setCornerRadius(float topLeft, float topRight, float bottomRight, float bottomLeft)");
         Set<Float> radiusSet = new HashSet<>(4);
         radiusSet.add(topLeft);
         radiusSet.add(topRight);
@@ -567,57 +567,57 @@ public class RoundedDrawable extends Drawable {
     }
 
     public float getBorderWidth() {
-        Log.d(TAG, "getBorderWidth()");
+//        Log.d(TAG, "getBorderWidth()");
         return mBorderWidth;
     }
 
     public RoundedDrawable setBorderWidth(float width) {
-        Log.d(TAG, "RoundedDrawable setBorderWidth(float width)");
+//        Log.d(TAG, "RoundedDrawable setBorderWidth(float width)");
         mBorderWidth = width;
         mBorderPaint.setStrokeWidth(mBorderWidth);
         return this;
     }
 
     public int getBorderColor() {
-        Log.d(TAG, "getBorderColor()");
+//        Log.d(TAG, "getBorderColor()");
         return mBorderColor.getDefaultColor();
     }
 
     public RoundedDrawable setBorderColor(@ColorInt int color) {
-        Log.d(TAG, "RoundedDrawable setBorderColor(@ColorInt int color)");
+//        Log.d(TAG, "RoundedDrawable setBorderColor(@ColorInt int color)");
         return setBorderColor(ColorStateList.valueOf(color));
     }
 
     public ColorStateList getBorderColors() {
-        Log.d(TAG, "ColorStateList getBorderColors()");
+//        Log.d(TAG, "ColorStateList getBorderColors()");
         return mBorderColor;
     }
 
     public RoundedDrawable setBorderColor(ColorStateList colors) {
-        Log.d(TAG, "RoundedDrawable setBorderColor(ColorStateList colors)");
+//        Log.d(TAG, "RoundedDrawable setBorderColor(ColorStateList colors)");
         mBorderColor = colors != null ? colors : ColorStateList.valueOf(0);
         mBorderPaint.setColor(mBorderColor.getColorForState(getState(), DEFAULT_BORDER_COLOR));
         return this;
     }
 
     public boolean isOval() {
-        Log.d(TAG, "isOval()");
+//        Log.d(TAG, "isOval()");
         return mOval;
     }
 
     public RoundedDrawable setOval(boolean oval) {
-        Log.d(TAG, "RoundedDrawable setOval(boolean oval)");
+//        Log.d(TAG, "RoundedDrawable setOval(boolean oval)");
         mOval = oval;
         return this;
     }
 
     public ScaleType getScaleType() {
-        Log.d(TAG, "ScaleType getScaleType()");
+//        Log.d(TAG, "ScaleType getScaleType()");
         return mScaleType;
     }
 
     public RoundedDrawable setScaleType(ScaleType scaleType) {
-        Log.d(TAG, "RoundedDrawable setScaleType(ScaleType scaleType)");
+//        Log.d(TAG, "RoundedDrawable setScaleType(ScaleType scaleType)");
         if (scaleType == null) {
             scaleType = ScaleType.FIT_CENTER;
         }
@@ -629,12 +629,12 @@ public class RoundedDrawable extends Drawable {
     }
 
     public Shader.TileMode getTileModeX() {
-        Log.d(TAG, "Shader.TileMode getTileModeX()");
+//        Log.d(TAG, "Shader.TileMode getTileModeX()");
         return mTileModeX;
     }
 
     public RoundedDrawable setTileModeX(Shader.TileMode tileModeX) {
-        Log.d(TAG, "RoundedDrawable setTileModeX(Shader.TileMode tileModeX) ");
+//        Log.d(TAG, "RoundedDrawable setTileModeX(Shader.TileMode tileModeX) ");
         if (mTileModeX != tileModeX) {
             mTileModeX = tileModeX;
             mRebuildShader = true;
@@ -644,12 +644,12 @@ public class RoundedDrawable extends Drawable {
     }
 
     public Shader.TileMode getTileModeY() {
-        Log.d(TAG, "Shader.TileMode getTileModeY()");
+//        Log.d(TAG, "Shader.TileMode getTileModeY()");
         return mTileModeY;
     }
 
     public RoundedDrawable setTileModeY(Shader.TileMode tileModeY) {
-        Log.d(TAG, "RoundedDrawable setTileModeY(Shader.TileMode tileModeY)");
+//        Log.d(TAG, "RoundedDrawable setTileModeY(Shader.TileMode tileModeY)");
         if (mTileModeY != tileModeY) {
             mTileModeY = tileModeY;
             mRebuildShader = true;
@@ -659,7 +659,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private static boolean only(int index, boolean[] booleans) {
-        Log.d(TAG, "only(int index, boolean[] booleans)");
+//        Log.d(TAG, "only(int index, boolean[] booleans)");
         for (int i = 0, len = booleans.length; i < len; i++) {
             if (booleans[i] != (i == index)) {
                 return false;
@@ -669,7 +669,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private static boolean any(boolean[] booleans) {
-        Log.d(TAG, "any(boolean[] booleans)");
+//        Log.d(TAG, "any(boolean[] booleans)");
         for (boolean b : booleans) {
             if (b) {
                 return true;
@@ -679,7 +679,7 @@ public class RoundedDrawable extends Drawable {
     }
 
     private static boolean all(boolean[] booleans) {
-        Log.d(TAG, "all(boolean[] booleans)");
+//        Log.d(TAG, "all(boolean[] booleans)");
         for (boolean b : booleans) {
             if (b) {
                 return false;
