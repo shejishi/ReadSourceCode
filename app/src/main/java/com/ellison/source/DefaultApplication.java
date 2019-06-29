@@ -23,7 +23,7 @@ public class DefaultApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        // 单例
         dbApplication = this;
     }
 }
