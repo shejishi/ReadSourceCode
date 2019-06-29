@@ -1,6 +1,7 @@
 package com.ellison.source.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
@@ -50,12 +51,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) recyclerViewHolder.mItemCover.getLayoutParams();
-        layoutParams.height = mBeanList.get(i).getCoverImgHeight();
+        final RecyclerViewItemBean recyclerViewItemBean = mBeanList.get(i);
+        layoutParams.height = recyclerViewItemBean.getCoverImgHeight();
 
-        recyclerViewHolder.mItemCover.setImageDrawable(ContextCompat.getDrawable(recyclerViewHolder.mItemCover.getContext(), mBeanList.get(i).getCoverImg()));
-        recyclerViewHolder.mTvTitle.setText(mBeanList.get(i).getTitle());
-        recyclerViewHolder.mTvInfo.setText(mBeanList.get(i).getDetail());
-        switch (mBeanList.get(i).getStatus()) {
+        recyclerViewHolder.mItemCover.setImageDrawable(ContextCompat.getDrawable(recyclerViewHolder.mItemCover.getContext(), recyclerViewItemBean.getCoverImg()));
+        recyclerViewHolder.mTvTitle.setText(recyclerViewItemBean.getTitle());
+        recyclerViewHolder.mTvInfo.setText(recyclerViewItemBean.getDetail());
+        switch (recyclerViewItemBean.getStatus()) {
             case RecyclerViewItemBean.STATUS_ING:
                 recyclerViewHolder.mTvTag.setText("进行中");
                 recyclerViewHolder.mTvTag.setTextColor(ContextCompat.getColor(recyclerViewHolder.mTvTag.getContext(), R.color.source_read_status_ing_color));
@@ -73,7 +75,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         recyclerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RoundedImageViewActivity.enterRoundedImage(mActivity);
+                Intent i = new Intent(mActivity, recyclerViewItemBean.getJumpClass());
+                mActivity.startActivity(i);
             }
         });
     }

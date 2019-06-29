@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ellison.aop">
+
+    <application>
+        <activity android:name=".AopDetailActivity" />
+    </application>
+
+</manifest>

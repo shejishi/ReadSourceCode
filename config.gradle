@@ -1,0 +1,12 @@
+ext {
+    android = [
+            applicationId    : "com.lahuo.plant",
+            compileSdkVersion: 26,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 24,
+            targetSdkVersion : 26,
+            appVersionCode   : 64,
+            appVersionName   : "1.0.0",
+            support          : "26.1.0"
+    ]
+}

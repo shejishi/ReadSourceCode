@@ -39,12 +39,15 @@ public class RecyclerViewItemBean {
 
     private int coverImgHeight;
 
-    public RecyclerViewItemBean(@DrawableRes int coverImg, String title, String detail, @SourceStatus int status, int coverImgHeight) {
+    private Class mJumpClass;
+
+    public RecyclerViewItemBean(@DrawableRes int coverImg, String title, String detail, @SourceStatus int status, int coverImgHeight, Class jumpClass) {
         this.coverImg = coverImg;
         this.title = title;
         this.detail = detail;
         this.status = status;
         this.coverImgHeight = coverImgHeight;
+        this.mJumpClass = jumpClass;
     }
 
     public @DrawableRes
@@ -90,6 +93,15 @@ public class RecyclerViewItemBean {
 
     public RecyclerViewItemBean setCoverImgHeight(int coverImgHeight) {
         this.coverImgHeight = coverImgHeight;
+        return this;
+    }
+
+    public Class getJumpClass() {
+        return mJumpClass;
+    }
+
+    public RecyclerViewItemBean setJumpClass(Class jumpClass) {
+        mJumpClass = jumpClass;
         return this;
     }
 }

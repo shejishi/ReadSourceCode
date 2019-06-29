@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
+import com.ellison.aop.AopDetailActivity;
 import com.ellison.source.adapter.RecyclerViewAdapter;
 import com.ellison.source.bean.RecyclerViewItemBean;
 import com.ellison.source.utils.DensityUtils;
+import com.makeramen.roundedimageview.demo.RoundedImageViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,24 +32,30 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewItemBean roundedItemBean = new RecyclerViewItemBean(R.drawable.icon_circle_image,
                 getString(R.string.source_code_rounded_image_view),
                 getString(R.string.source_code_rounded_image_view_detail),
-                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
+                RecyclerViewItemBean.STATUS_FINISH, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), RoundedImageViewActivity.class);
+
+        RecyclerViewItemBean aopItemBean = new RecyclerViewItemBean(R.drawable.icon_aop_aspectj,
+                "Aop 详细使用规则",
+                "",
+                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), AopDetailActivity.class);
 
         RecyclerViewItemBean more1 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_blue_place_img,
                 getString(R.string.source_code_more),
                 getString(R.string.source_code_more_detail),
-                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
+                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), RoundedImageViewActivity.class);
 
         RecyclerViewItemBean more2 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_yellow_place_img,
                 getString(R.string.source_code_more),
                 getString(R.string.source_code_more_detail),
-                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
+                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), RoundedImageViewActivity.class);
 
         RecyclerViewItemBean more3 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_red_place_img,
                 getString(R.string.source_code_more),
                 getString(R.string.source_code_more_detail),
-                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)));
+                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), RoundedImageViewActivity.class);
 
         list.add(roundedItemBean);
+        list.add(aopItemBean);
         list.add(more1);
         list.add(more2);
         list.add(more3);
