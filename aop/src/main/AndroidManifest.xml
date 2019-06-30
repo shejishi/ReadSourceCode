@@ -3,6 +3,8 @@
 
     <application>
         <activity android:name=".AopDetailActivity" />
+
+        <activity android:name=".annotation.ExcutionAnnotationActivity" />
     </application>
 
 </manifest>
