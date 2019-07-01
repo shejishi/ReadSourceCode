@@ -1,8 +1,12 @@
 package com.ellison.aop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.ellison.aop.annotation.ExcutionAnnotationActivity;
 
 /**
  * @author ellison
@@ -19,5 +23,10 @@ public class AopDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_aop_page);
+    }
+
+    public void aopFindMethod(View view) {
+        Intent i = new Intent(this, ExcutionAnnotationActivity.class);
+        startActivity(i);
     }
 }

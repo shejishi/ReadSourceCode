@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
+            android:onClick="aopFindMethod"
             android:text="Aop 使用注解查找对应的方法"
             android:textColor="#333333" />
 
