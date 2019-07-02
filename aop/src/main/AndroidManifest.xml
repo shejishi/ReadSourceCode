@@ -5,6 +5,7 @@
         <activity android:name=".AopDetailActivity" />
 
         <activity android:name=".annotation.ExcutionAnnotationActivity" />
+        <activity android:name=".method.ExcutionMethodActivity" />
     </application>
 
 </manifest>
