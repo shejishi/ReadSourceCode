@@ -21,6 +21,7 @@ public class AnnotationApt {
     public void invokMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Log.d("test", "test");
         proceedingJoinPoint.proceed();
+        Log.d("test", "test");
     }
 
 }
