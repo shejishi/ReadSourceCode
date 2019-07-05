@@ -17,7 +17,6 @@ import java.lang.annotation.RetentionPolicy;
  */
 public class RecyclerViewItemBean {
 
-//    public static final int STATUS_ING = 1;
     public static final int STATUS_ING = 1;
 
     public static final int STATUS_FINISH = 2;
