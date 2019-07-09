@@ -1,6 +1,6 @@
 ext {
     android = [
-            applicationId    : "com.lahuo.plant",
+            applicationId    : "com.ellison.source",
             compileSdkVersion: 26,
             buildToolsVersion: "28.0.3",
             minSdkVersion    : 24,

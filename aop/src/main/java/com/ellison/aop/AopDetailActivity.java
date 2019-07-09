@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ellison.aop.annotation.ExcutionAnnotationActivity;
+import com.ellison.aop.method.ExecutionMethodActivity;
 
 /**
  * @author ellison
@@ -26,7 +26,7 @@ public class AopDetailActivity extends AppCompatActivity {
     }
 
     public void aopFindMethod(View view) {
-        Intent i = new Intent(this, ExcutionAnnotationActivity.class);
+        Intent i = new Intent(this, ExecutionMethodActivity.class);
         startActivity(i);
     }
 }
