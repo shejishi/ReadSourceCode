@@ -1,10 +1,9 @@
-package com.ellison.aop.method;
+package com.ellison.aop.execution_method;
 
 import android.util.Log;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
@@ -16,7 +15,7 @@ import org.aspectj.lang.annotation.Pointcut;
  * 邮箱： Ellison.Sun0808@outlook.com
  * 博客： <a href="https://www.jianshu.com/u/b1c92a64018a">简书博客</a>
  */
-@Aspect
+//@Aspect
 public class MethodApt {
 
     public static final String TAG = "MethodApt";

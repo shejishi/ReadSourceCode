@@ -4,8 +4,8 @@
     <application>
         <activity android:name=".AopDetailActivity" />
 
-        <activity android:name=".annotation.ExcutionAnnotationActivity" />
-        <activity android:name=".method.ExecutionMethodActivity" />
+        <activity android:name=".execution_method.ExecutionMethodActivity" />
+        <activity android:name=".annotation_method.AnnotationMethodActivity" />
     </application>
 
 </manifest>
