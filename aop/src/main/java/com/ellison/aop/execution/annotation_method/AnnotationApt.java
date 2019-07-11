@@ -1,4 +1,4 @@
-package com.ellison.aop.annotation_method;
+package com.ellison.aop.execution.annotation_method;
 
 import android.util.Log;
 
@@ -16,21 +16,21 @@ import org.aspectj.lang.annotation.Pointcut;
  * 邮箱： Ellison.Sun0808@outlook.com
  * 博客： <a href="https://www.jianshu.com/u/b1c92a64018a">简书博客</a>
  */
-@Aspect
+//@Aspect
 public class AnnotationApt {
     public static final String TAG = "AnnotationApt";
 
-    @Pointcut("execution(@com.ellison.aop.annotation_method.ExecutionAnnotationFindMethod ReturnParam *(..))")
+    @Pointcut("execution(@com.ellison.aop.execution.annotation_method.ExecutionAnnotationFindMethod ReturnParam *(..))")
     public void annotationFindMethod() {
 
     }
 
-    @Pointcut("execution(@com.ellison.aop.annotation_method.ExecutionAnnotationFindMethod * *(..))")
+    @Pointcut("execution(@com.ellison.aop.execution.annotation_method.ExecutionAnnotationFindMethod * *(..))")
     public void annotationNoReturnFindMethod() {
 
     }
 
-    @Pointcut("execution(@com.ellison.aop.annotation_method.ExecutionAnnotationFindMethod * *(String))")
+    @Pointcut("execution(@com.ellison.aop.execution.annotation_method.ExecutionAnnotationFindMethod * *(String))")
     public void annotationParamsStringFindMethod() {
 
     }
