@@ -3,9 +3,9 @@
 
     <application>
         <activity android:name=".AopDetailActivity" />
-
-        <activity android:name=".annotation.ExcutionAnnotationActivity" />
-        <activity android:name=".method.ExcutionMethodActivity" />
+        <activity android:name=".execution.execution_method.ExecutionMethodActivity" />
+        <activity android:name=".execution.annotation_method.AnnotationMethodActivity" />
+        <activity android:name=".within.within_package.WithinInPackageActivity" />
     </application>
 
 </manifest>

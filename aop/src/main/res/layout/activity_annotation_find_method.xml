@@ -5,15 +5,11 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/aop_method"
+        android:id="@+id/annotation_method"
+        android:onClick="aopAnnotationFindMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击1" />
-
-    <Button
-        android:id="@+id/aop_method_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="点击2" />
+        android:text="通过Annotation查找method"
+        android:textAllCaps="false" />
 
 </LinearLayout>

@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ellison.aop.annotation.ExcutionAnnotationActivity;
+import com.ellison.aop.execution.annotation_method.AnnotationMethodActivity;
+import com.ellison.aop.execution.execution_method.ExecutionMethodActivity;
+import com.ellison.aop.within.within_package.WithinInPackageActivity;
 
 /**
  * @author ellison
@@ -25,8 +27,18 @@ public class AopDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aop_page);
     }
 
-    public void aopFindMethod(View view) {
-        Intent i = new Intent(this, ExcutionAnnotationActivity.class);
+    public void aopAnnotationFindMethod(View view) {
+        Intent i = new Intent(this, AnnotationMethodActivity.class);
+        startActivity(i);
+    }
+
+    public void aopExecutionFindMethod(View view) {
+        Intent i = new Intent(this, ExecutionMethodActivity.class);
+        startActivity(i);
+    }
+
+    public void aopWithinWithPackage(View view) {
+        Intent i = new Intent(this, WithinInPackageActivity.class);
         startActivity(i);
     }
 }
