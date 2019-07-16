@@ -48,7 +48,7 @@ public class RoundedView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, radius, mPaint);
+        canvas.drawCircle(getMeasuredWidth() >> 1, getMeasuredHeight() >> 1, radius, mPaint);
     }
 
     public void setRoundSize(float size) {

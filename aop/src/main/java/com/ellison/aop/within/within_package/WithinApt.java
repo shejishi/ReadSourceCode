@@ -21,14 +21,15 @@ public class WithinApt {
 
     public static final String TAG = "WithinApt";
 
-    @Pointcut("within(com.ellison.aop.within..*)")
+    @Pointcut("within(com.ellison.aop.within.within_package..*)")
     public void withinFindPackage() {
 
     }
 
     @Before("withinFindPackage()")
-    public void invokeMethod(JoinPoint joinPoint) {
+    public void invokeMethod(JoinPoint joinPoint) throws Throwable {
         Log.d(TAG, "具体方法之前");
+        ((ProceedingJoinPoint)joinPoint).proceed();
     }
 
 }

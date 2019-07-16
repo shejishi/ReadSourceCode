@@ -24,6 +24,51 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
+
+    def keystorePropertiesFile = rootProject.file("release.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+
+        release {
+            keyAlias keystoreProperties["RELEASE_KEY_ALIAS"]
+            keyPassword keystoreProperties["RELEASE_KEY_PASSWORD"]
+            storeFile file(keystoreProperties['RELEASE_STORE_FILE'])
+            storePassword keystoreProperties["RELEASE_STORE_PASSWORD"]
+            v2SigningEnabled true
+        }
+
+    }
+
+    buildTypes {
+        release {
+            //混淆 debug与release的默认值都为false,如果需要混淆需要手动配置为true;
+            //混淆文件在proguardFiles后面配置,默认为app目录下的 “proguard-rules.pro”
+            minifyEnabled true
+
+            //是否对齐app所有资源,对齐后,会使得在运行时Android与应用程序间的交互更加有效率;
+            //配置此属性必须要有足够的信息签名程序包，Ant才会执行对齐操作，因为对齐处理发生在签名之后。为了能够签名程序包，进而执行对齐操作，Ant必须知道keystore的位置以及build.properties中key的名字。相应的属性名为key.store和key.alias。如果这些属性为空，签名工具会在编译过程中提示输入store/key的密码，然后脚本会执行签名及apk文件的对齐。如果这些属性都没有，Release程序包不会进行签名，自然也就不会进行对齐了。
+            zipAlignEnabled true//内存对齐
+
+            //配置true,移除无用的resource文件,可以减小apk包的大小,有瘦身效果;
+            //Tor Norbye在Google+上还透露了Android Gradle插件清除无用资源的效果：在构建时，自动移除无用资源的功能能够大幅度减小APK文件的大小（最高可减小34%）；当前能够移除的无用资源包括图片、布局、菜单等资源文件，但不包括value资源文件。
+            //本文来自 Droidrzy 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/droidrzy/article/details/61200115?utm_source=copy
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            //混淆
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+            signingConfig signingConfigs.release
+        }
+
+    }
 }
 
 dependencies {
