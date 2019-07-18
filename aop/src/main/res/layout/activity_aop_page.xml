@@ -12,8 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="10dp"
             android:onClick="aopAnnotationFindMethod"
+            android:padding="10dp"
             android:text="(Execution) Aop 使用注解查找对应的方法"
             android:textColor="#333333" />
 
@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="10dp"
             android:onClick="aopExecutionFindMethod"
+            android:padding="10dp"
             android:text="(Execution) Aop 查找方法"
             android:textColor="#333333" />
 
@@ -40,9 +40,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="10dp"
             android:onClick="aopWithinWithPackage"
+            android:padding="10dp"
             android:text="(Within) Aop 在包下查找"
+            android:textColor="#333333" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#d5d5d5" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="aopWithinWithAnnotation"
+            android:padding="10dp"
+            android:text="(Within) Aop 在注解下查找"
             android:textColor="#333333" />
 
         <View

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.ellison.aop.R;
 
@@ -50,6 +51,5 @@ public class AnnotationMethodActivity extends AppCompatActivity {
     public void test2(String str) {
         Log.d(TAG, "test测试Annotation查找方法");
     }
-
 
 }

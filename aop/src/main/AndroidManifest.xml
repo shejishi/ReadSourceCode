@@ -6,6 +6,7 @@
         <activity android:name=".execution.execution_method.ExecutionMethodActivity" />
         <activity android:name=".execution.annotation_method.AnnotationMethodActivity" />
         <activity android:name=".within.within_package.WithinInPackageActivity" />
+        <activity android:name=".within.within_annotation.WithInAnnotationActivity" />
     </application>
 
 </manifest>

@@ -1,9 +1,10 @@
-package com.ellison.aop.within.within_package;
+package com.ellison.aop.apt;
 
 import android.util.Log;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -21,12 +22,17 @@ public class WithinApt {
 
     public static final String TAG = "WithinApt";
 
-    @Pointcut("within(com.ellison.aop.within.within_package..*)")
+    @Pointcut("within(com.ellison.aop.within.*)")
     public void withinFindPackage() {
 
     }
 
-    @Before("withinFindPackage()")
+    @Pointcut("within(@com.ellison.aop.apt.WithinAnnotation *)")
+    public void withinAnnotation() {
+
+    }
+
+    @After("withinAnnotation()")
     public void invokeMethod(JoinPoint joinPoint) throws Throwable {
         Log.d(TAG, "具体方法之前");
         ((ProceedingJoinPoint)joinPoint).proceed();

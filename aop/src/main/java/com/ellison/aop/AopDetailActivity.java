@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.ellison.aop.execution.annotation_method.AnnotationMethodActivity;
 import com.ellison.aop.execution.execution_method.ExecutionMethodActivity;
+import com.ellison.aop.within.within_annotation.WithInAnnotationActivity;
 import com.ellison.aop.within.within_package.WithinInPackageActivity;
 
 /**
@@ -39,6 +40,11 @@ public class AopDetailActivity extends AppCompatActivity {
 
     public void aopWithinWithPackage(View view) {
         Intent i = new Intent(this, WithinInPackageActivity.class);
+        startActivity(i);
+    }
+
+    public void aopWithinWithAnnotation(View view) {
+        Intent i = new Intent(this, WithInAnnotationActivity.class);
         startActivity(i);
     }
 }
