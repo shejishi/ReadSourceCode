@@ -113,6 +113,100 @@ execution(@com.ellison.aop.annotation_method.ExecutionAnnotationFindMethod Retur
 ```
 execution(@com.ellison.aop.annotation_method.ExecutionAnnotationFindMethod * *(String))
 ```
+##### 3.2 within
+看到`within`，想必大家都很熟悉；因为在我们第一个打印`log`的实例中就使用到了`within` 切入点包括  **对象初始化块**、**field**、**构造方法**、**方法**、 **类**
+
+######3.2.1 within 查找包下的任意连接点
+首先，我们先定义一个简单的自定义`view`，这个自定义`view`就在它的中间区域内画一个圆，对，就是这么简单：
+```
+public class RoundedView extends View {
+
+    private Context mContext;
+    private Paint mPaint;
+
+    public RoundedView(Context context) {
+        this(context, null);
+    }
+
+    public RoundedView(Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public RoundedView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+
+        mContext = context;
+        initView();
+    }
+
+    private void initView() {
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(Color.CYAN);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 100, mPaint);
+    }
+}
+```
+初始化画笔`paint`之后，在`onDraw()`方法中直接使用`canvas`画圆即可，效果图如下：
+![within查找包下任意连接点.png](https://upload-images.jianshu.io/upload_images/2158207-702c11ffef8793fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/120/h/280)
+因为我们在`Activity`下使用了这个自定义`view`，所以下面我们开始使用`within`查找这个`view`所在的包下所有连接点并打印出方法、字段、构造函数：
+```
+@Aspect
+public class WithinApt {
+
+    public static final String TAG = "WithinApt";
+
+    @Pointcut("within(com.ellison.aop.within..*)")
+    public void withinFindPackage() {
+
+    }
+
+    @Before("withinFindPackage()")
+    public void invokeMethod(JoinPoint joinPoint) throws Throwable {
+        Log.d(TAG, "具体方法之前");
+        ((ProceedingJoinPoint)joinPoint).proceed();
+    }
+}
+```
+上面，我们使用`within`找到了包下面所有的方法、字段、构造方法的连接切入点，
+```
+within(com.ellison.aop.within.*)
+```
+`com.ellison.aop.within`包下任意连接点
+
+```
+within(com.ellison.aop.within..*)
+```
+`com.ellison.aop.within`包或子包下任意连接点
+
+```
+within(RoundedView)
+```
+`RoundedView`类下的任意连接点
+
+```
+within(@com.xyz.service.BehavioClass *)
+```
+持有com.xyz.service.BehavioClass注解的任意连接点
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
