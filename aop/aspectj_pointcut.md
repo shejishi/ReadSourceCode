@@ -152,7 +152,7 @@ public class RoundedView extends View {
         canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, 100, mPaint);
     }
 }
-``` 
+```  
 初始化画笔`paint`之后，在`onDraw()`方法中直接使用`canvas`画圆即可，效果图如下：
 ![within查找包下任意连接点.png](https://upload-images.jianshu.io/upload_images/2158207-702c11ffef8793fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/120/h/280)
 因为我们在`Activity`下使用了这个自定义`view`，所以下面我们开始使用`within`查找这个`view`所在的包下所有连接点并打印出方法、字段、构造函数：
