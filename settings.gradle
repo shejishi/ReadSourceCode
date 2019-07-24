@@ -1,1 +1,9 @@
-include ':app', ':roundedimageview', ':log_annotation', ':aop', ':butterknife-compiler', ':butterknife-runtime', ':butterknife-lint', ':butterknife-annotations', ':butterknife'
+include ':app',
+        ':roundedimageview',
+        ':log_annotation',
+        ':aop',
+        ':butterknife-compiler',
+        ':butterknife-runtime',
+        ':butterknife-lint',
+        ':butterknife-annotations',
+        ':butterknife'
