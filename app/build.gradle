@@ -85,6 +85,6 @@ dependencies {
 
     implementation project(":aop")
 
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation project(':butterknife')
+    annotationProcessor project(':butterknife-compiler')
 }
