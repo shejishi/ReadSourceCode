@@ -1,13 +1,15 @@
 package com.ellison.source;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.ellison.aop.AopDetailActivity;
 import com.ellison.source.adapter.RecyclerViewAdapter;
 import com.ellison.source.bean.RecyclerViewItemBean;
+import com.ellison.source.butterknife.ButterknifeActivity;
 import com.ellison.source.utils.DensityUtils;
 import com.makeramen.roundedimageview.demo.RoundedImageViewActivity;
 
@@ -36,8 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerViewItemBean aopItemBean = new RecyclerViewItemBean(R.drawable.icon_aop_aspectj,
                 "Aop 详细使用规则",
-                "",
-                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), AopDetailActivity.class);
+                "AspectJ 你听说过嘛？",
+                RecyclerViewItemBean.STATUS_FINISH, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), AopDetailActivity.class);
+
+        RecyclerViewItemBean butterknifeItemBean = new RecyclerViewItemBean(R.drawable.icon_source_code_butterknife,
+                getString(R.string.source_code_butterknife),
+                getString(R.string.source_code_butterknife_detail),
+                RecyclerViewItemBean.STATUS_ING, DensityUtils.dip2px(200.0f + new Random().nextInt(100)), ButterknifeActivity.class);
 
         RecyclerViewItemBean more1 = new RecyclerViewItemBean(R.drawable.shap_source_read_code_blue_place_img,
                 getString(R.string.source_code_more),
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         list.add(roundedItemBean);
         list.add(aopItemBean);
-        list.add(more1);
+        list.add(butterknifeItemBean);
         list.add(more2);
         list.add(more3);
         list.add(more2);

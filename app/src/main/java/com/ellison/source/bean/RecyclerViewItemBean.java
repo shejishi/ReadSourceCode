@@ -1,7 +1,7 @@
 package com.ellison.source.bean;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
 import android.text.TextUtils;
 
 import java.lang.annotation.Retention;

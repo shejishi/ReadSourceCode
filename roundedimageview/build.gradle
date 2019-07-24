@@ -18,7 +18,7 @@ android {
 
 dependencies {
   compileOnly 'com.squareup.picasso:picasso:2.5.2'
-  compileOnly 'com.android.support:appcompat-v7:26.1.0'
+  compileOnly 'androidx.appcompat:appcompat:1.0.0'
 
   api project(":log_annotation")
 }

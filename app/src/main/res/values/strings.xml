@@ -4,4 +4,6 @@
     <string name="source_code_rounded_image_view_detail">阅读的源码都是Github上star数量比较多的项目，其中有一位优秀得开发者整合了star比较多的框架：https://github.com/SenhLinsh/Android-Hot-Libraries</string>
     <string name="source_code_more">待续 ——</string>
     <string name="source_code_more_detail">后面再分析</string>
+    <string name="source_code_butterknife">源码阅读系列 —— Butterknife</string>
+    <string name="source_code_butterknife_detail">曾经在Activity上的骚操作，现在也用不到了；其中的精髓还是有必要了解的~</string>
 </resources>
