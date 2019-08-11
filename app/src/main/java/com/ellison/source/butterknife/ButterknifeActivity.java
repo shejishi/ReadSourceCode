@@ -17,6 +17,7 @@ import com.ellison.source.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * @author ellison
@@ -30,13 +31,14 @@ public class ButterknifeActivity extends AppCompatActivity {
 
     @BindView(R.id.butterknife_recycler_view)
     RecyclerView mRecyclerView;
+    private Unbinder mBind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_butterknife);
-        ButterKnife.bind(this);
+        mBind = ButterKnife.bind(this);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(new ButterknifeAdapter());
@@ -45,6 +47,9 @@ public class ButterknifeActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mBind != null) {
+            mBind.unbind();
+        }
     }
 
     public class ButterknifeAdapter extends RecyclerView.Adapter<ButterknifeAdapter.ButterknifeHolder> {
