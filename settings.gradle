@@ -1,4 +1,4 @@
-include ':app',
+include ':app', ':dragger',
         ':roundedimageview',
         ':log_annotation',
         ':aop',
