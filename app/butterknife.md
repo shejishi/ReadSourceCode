@@ -55,3 +55,16 @@ buildscript {
   }
 }
 ```
+然后将其添加到你的模块中:
+```
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+```
+经过上面的操作，你以前把`Butterknife`集成到你的项目中，但是如果在`library`中使用的话，和在`application`中是不一样的，它需要使用`R2`来代替`R`:
+```
+class ExampleActivity extends Activity {
+  @BindView(R2.id.user) EditText username;
+  @BindView(R2.id.pass) EditText password;
+...
+}
+```
