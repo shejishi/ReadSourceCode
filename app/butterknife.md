@@ -45,7 +45,7 @@ dependencies {
 
 如果在`library`中使用`Butterknife`，则需要添加`plugin`
 ```
-buildscript {
+buildscript { 
   repositories {
     mavenCentral()
     google()
